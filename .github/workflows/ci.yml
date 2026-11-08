@@ -1,0 +1,33 @@
+name: Check
+
+# `brew style`, `brew audit` and `brew fetch` (which checks the sha256) on every cask. Also run by
+# the bump workflow on the branch it pushes: a pull request opened with the workflow's own token
+# does not start workflows, and `main` requires this check.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  casks:
+    name: Casks
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Style, audit and fetch
+        run: scripts/audit.sh
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_FROM_API: "1"
