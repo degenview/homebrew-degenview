@@ -6,8 +6,10 @@ Intel, macOS 14 or newer).
 ## Install
 
 ```bash
-brew install --cask degenview/degenview/degenview      # the latest final release
-brew install --cask degenview/degenview/degenview@rc   # the latest release candidate (or final, if newer)
+brew tap degenview/degenview
+brew trust degenview/degenview   # Homebrew 7 refuses to load a third-party tap's casks until you do
+brew install --cask degenview      # the latest final release
+brew install --cask degenview@rc   # the latest release candidate (or final, if newer)
 ```
 
 Both put `DegenView.app` in `/Applications`; install one at a time. The app is signed and notarized,
