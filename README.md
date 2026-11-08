@@ -10,6 +10,11 @@ brew install --cask degenview/degenview/degenview      # the latest final releas
 brew install --cask degenview/degenview/degenview@rc   # the latest release candidate (or final, if newer)
 ```
 
+Naming the cask in full is what lets this work in one command: Homebrew 7 taps the repository and
+trusts that one cask as you install it. If you `brew tap degenview/degenview` first and then install
+by short name (`brew install --cask degenview`), Homebrew refuses with "untrusted tap" until you run
+`brew trust degenview/degenview`.
+
 Both put `DegenView.app` in `/Applications`; install one at a time. The app is signed and notarized,
 so there is nothing to approve in Gatekeeper.
 
