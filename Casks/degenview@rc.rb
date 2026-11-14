@@ -1,10 +1,10 @@
-# Written by scripts/bump.sh from the degenview/degenview release v0.6.0-rc.17. Do not edit by hand.
+# Written by scripts/bump.sh from the degenview/degenview release v0.6.0-rc.25. Do not edit by hand.
 cask "degenview@rc" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.6.0-rc.17"
-  sha256 arm:   "8e47f0b8ed8dc118979bf5e14af8c38d0b69b69f4bbe99f228a6717160e358f4",
-         intel: "df32636a75c0ab551c3e9dc61b2cb804bc64a5abce452eee655b7a390cad1f86"
+  version "0.6.0-rc.25"
+  sha256 arm:   "8a9065b03d961cebfb37d1fca7cc77f8f0836c1b29d5432ee9230cffaf154353",
+         intel: "e79ece6952f3c204491233d651568cfca6b4e8290a1333354845886e279bd10b"
 
   url "https://github.com/degenview/degenview/releases/download/v#{version}/DegenView-v#{version}-macos-#{arch}.zip"
   name "DegenView"
